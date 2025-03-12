@@ -344,7 +344,7 @@
   <div id="play-container" class="page-container">
     <!-- The library background filling the scene -->
     <div class="cubicle">
-      <img src="library.jpg" alt="library background">
+      <img src="" alt="library background">
     </div>
     
     <!-- Dialogue Box at the bottom -->
@@ -388,11 +388,11 @@
   <!-- FOURTH PAGE Container (Scene 3 with choices 3 & 4) -->
   <div id="fourth-page" class="page-container">
     <div class="cubicle">
-      <img src="fourth.jpg" alt="Fourth page background">
+      <img src="library.jpg" alt="Fourth page background">
     </div>
     <!-- Dialogue Box remains unchanged at the bottom -->
     <div class="dialogue-box">
-      <p class="internal">Suddenly, your eyes lock onto a page where a photograph has been torn out—so badly ripped that the girl's face is nearly unrecognizable. Yet, beneath the smudged image, one name stands out: <strong>Sinclair</strong>.</p>
+      <p class="internal">Suddenly, your eyes lock onto a page where a photograph has been torn out—so badly ripped that the girl's face is nearly unrecognizable. Yet, beneath the smudged image, one name stands out: <strong>Lyris Sinclair</strong>.</p>
     </div>
     <!-- Choice Buttons (centered on the background) for choices 3 & 4 -->
     <div class="choice-container">
@@ -431,11 +431,41 @@
       <img src="fifth.jpg" alt="Fifth page background">
     </div>
     <div class="dialogue-box">
-      <p id="fifth-text" class="internal">[Fifth page outcome text goes here]</p>
+      <p id="fifth-text" class="internal">Over the following days, your obsession deepens. At the end of every class, you slip away into the deserted corridors, piecing together clues like fragments of a shattered mirror. One fateful night, your investigation leads you to the SSG office—the very office once overseen by Lyris Sinclair.</p>
       <!-- Next Cursor for Fifth Page (optional) -->
       <div class="next-cursor" id="fifth-next-btn">&#9658;</div>
     </div>
   </div>
+
+   <!-- SIXTH PAGE Container (Scene 3 with choices 3 & 4) -->
+   <div id="sixth-page" class="page-container">
+    <div class="cubicle">
+      <img src=".jpg" alt="Fifth page background">
+    </div>
+    <!-- Dialogue Box remains unchanged at the bottom -->
+    <div class="dialogue-box">
+      <p class="internal">Inside a dusty drawer, you discover a small, locked diary. Your hands tremble as you approach it.      </p>
+    </div>
+    <!-- Choice Buttons (centered on the background) for choices 3 & 4 -->
+    <div class="choice-container">
+      <button class="choice" id="choice5">Inspect the Diary:</button>
+      <button class="choice" id="choice6">Break the Lock Immediately</button>
+    </div>
+  </div>
+
+  
+  <!-- OUTCOME PAGE 2 Container (Outcome of choices 3 & 4) -->
+  <div id="outcome-page3" class="page-container">
+    <div class="cubicle">
+      <img src="outcome3.jpg" alt="Outcome 3 background">
+    </div>
+    <div class="dialogue-box">
+      <p id="outcome2-text" class="internal">[Outcome text for choices 5 & 6 goes here]</p>
+      <!-- Next Cursor for Outcome Page 2 -->
+      <div class="next-cursor" id="outcome3-next-btn">&#9658;</div>
+    </div>
+  </div>
+  
 
   <!-- Other Pages -->
   <div id="gallery-container" class="page-container">
@@ -551,14 +581,23 @@
 
     // Fifth Page Next Cursor -> Example: Go to Third Page (or any page you want)
     document.getElementById('fifth-next-btn').addEventListener('click', function() {
-      showPage('third-page');
+      showPage('sixth-page');
     });
 
-    // Third Page Next Cursor -> Example: Go to Gallery
-    document.getElementById('third-next-btn').addEventListener('click', function() {
-      showPage('gallery-container');
+     // Choice Buttons on Fourth Page (Scene 3)
+    document.getElementById('choice5').addEventListener('click', function() {
+      // Set outcome text for choice 5
+      document.getElementById('outcome3-text').textContent = "You notice a faint, almost imperceptible pattern on the cover, hinting that the diary holds secrets of great importance.";
+      showPage('outcome-page3');
     });
 
+    document.getElementById('choice6').addEventListener('click', function() {
+      // Set outcome text for choice 6
+      document.getElementById('outcome3-text').textContent = " After several tense moments, the lock gives way, and you open the diary with a mix of anticipation and dread.";
+      showPage('outcome-page3');
+    });
+
+   
     // Other menu buttons
     document.getElementById('gallery-btn').addEventListener('click', function(e) {
       e.preventDefault();
